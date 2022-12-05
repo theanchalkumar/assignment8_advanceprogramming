@@ -1,0 +1,75 @@
+1.
+
+def vowel_links(s):
+    l = s.split()
+    for i in range(len(l)-1):
+        if (l[i][-1] in ["a","i","e","o","u"]) and (l[i+1][0] in ["a","i","e","o","u"]):
+            return True
+    else:
+        return False
+        
+print(vowel_links("a very large appliance"))
+print(vowel_links("go to edabit"))
+print(vowel_links("an open fire"))
+print(vowel_links("a sudden applause"))
+
+2.
+
+def first_before_second(s,first_letter,second_letter):
+    if s.rfind(first_letter) < s.find(second_letter):
+        return True
+    else:
+        return False
+    
+print(first_before_second("a rabbit jumps joyfully","a","j"))
+print(first_before_second("knaves knew about waterfalls", "k", "w"))
+print(first_before_second("happy birthday", "a", "y"))
+print(first_before_second("precarious kangaroos", "k", "a"))
+
+
+3.
+
+def char_at_pos(l,s):
+    if s == 'even':
+        return [l[i] for i in range(len(l)) if (i+1) % 2 == 0]
+    elif s == 'odd':
+        return [l[i] for i in range(len(l)) if (i+1) % 2 != 0]
+
+print(char_at_pos([2, 4, 6, 8, 10], "even"))   
+print(char_at_pos("EDABIT", "odd"))
+print(char_at_pos(["A", "R", "B", "I", "T", "R", "A", "R", "I", "L", "Y"], "odd"))
+
+4.
+
+import math 
+
+def GCD(numbers):
+    res = numbers[0]
+    for i in range(1,len(numbers)):
+        res = math.gcd(numbers[i],res)
+    return res
+
+print(GCD([10, 20, 40]))
+print(GCD([1, 2, 3, 100]))
+print(GCD([1024, 192, 2048, 512]))
+
+5.
+
+def palindrome_type(n):
+    type1 = '' 
+    if bin(n).lstrip('0b') == bin(n).lstrip('0b')[::-1]:
+        type1 += "Binary only"
+    if str(n) == str(n)[::-1]:
+        type1 += "Decimal only"
+    
+    if type1 == "Binary onlyDecimal only":
+        return  "Decimal and binary."
+    elif type1 == '':
+        return "Neither!"
+    else:
+        return type1
+    
+print(palindrome_type(1306031))
+print(palindrome_type(427787))
+print(palindrome_type(313))
+print(palindrome_type(934))
